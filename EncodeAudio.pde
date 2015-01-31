@@ -12,8 +12,11 @@ void setup()
 {
   size(512, 200);
   
-  String file = selectInput("Select audio file to encode.");
-
+  selectInput("Select audio file to encode.", "callback");
+}
+void callback(File sfile){
+  String file = sfile.getAbsolutePath();
+  
   if (file == null) {
     exit();
     return;
@@ -25,7 +28,7 @@ void setup()
     minim = new Minim(this);
     sample = minim.loadSample(file);
     
-    float[] samples = sample.getChannel(BufferedAudio.LEFT);
+    float[] samples = sample.getChannel(1); //BufferedAudio.LEFT
     float maxval = 0;
   
     for (int i = 0; i < samples.length; i++) {
@@ -51,6 +54,7 @@ void setup()
   }
   
   exit();
+  
 }
 
 void stop()
