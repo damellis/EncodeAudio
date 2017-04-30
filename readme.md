@@ -1,4 +1,4 @@
-#EncodeAudio
+# EncodeAudio
 
 *Processing sketch for translating audio files into numeric values. 
 <http://hlt.media.mit.edu/?p=1963>*
